@@ -2,8 +2,14 @@
 
 ## lambdaサンプル
 
+- docker/Dockefile 2020/05現在 python3.8
 - event.json (引数:通常であればこちらから送るデータ)
 - lambda_sample.py (lambdaに挙げるプログラムそのもの)
+
+
+### event.jsonに関して
+
+実際の開発ではAWS管理画面のcloudwatchでログを吐き`print(event)`、これらをevent.jsonとして作成する。
 
 デバックコマンド
 ```
