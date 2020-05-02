@@ -1,0 +1,10 @@
+version: '3'
+services:
+  python3:
+    container_name: "python"
+    build:
+        context: "./docker"
+        dockerfile: "Dockerfile"
+    tty: true
+    volumes:
+        - .:/root
