@@ -25,3 +25,45 @@ python-lambda-local -f lambda_handler lambda_sample.py event.json
 {'statusCode': 200, 'body': '"Hello from Lambda!"'}
 
 ```
+
+### Lambda + APIGateway + DynamoDB
+
+Lambda + APIGateway
+https://qiita.com/tamura_CD/items/46ba8a2f3bfd5484843f#-api-gateway%E3%81%A7rest-api%E3%82%92%E4%BD%9C%E6%88%90
+
+
+Lambda + dynamodb
+https://qiita.com/hellscare/items/d80c9ff0290966eb0cf8
+
+
+
+
+### DynamoDB
+
+cliコマンド
+https://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html#cli-aws-dynamodb
+
+```
+#全件取得
+aws dynamodb scan \
+--table-name テーブル名
+
+#特定キーで取得
+aws dynamodb get-item \
+--table-name product_conditions \
+--key '{"product_id":{"N":"1"}}'
+
+#新規データ追加
+aws dynamodb put-item \
+    --table-name product_conditions \
+    --item '{
+        "product_id": {"N": "3"},
+        "product_name": {"S": "本"} ,
+        "price_min": {"N": "111"},
+        "price_max": {"N": "222"}         
+      }'
+
+```
+botob<br>
+
+https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
