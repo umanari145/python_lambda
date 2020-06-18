@@ -1,13 +1,12 @@
 import json
+import boto3
 
-###
-###　関数名は固定
-###
 def lambda_handler(event, context):
 
     print('--------');
     print(event);
     print('---------');
+    print('---本日は晴天なり--');
 
     return {
         'statusCode': 200,

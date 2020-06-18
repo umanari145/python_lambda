@@ -1,0 +1,11 @@
+{
+  "name": "product_conditions",
+  "description": "lambda-uploader",
+  "region": "us-east-1",
+  "runtime": "python3.8",
+  "requirements": ["boto3"],
+  "handler": "lambda_function.lambda_handler",
+  "role": "arn:aws:iam::697698772502:role/service-role/product_conditions-role-jta29zxw",
+  "timeout": 300,
+  "memory": 128
+}
