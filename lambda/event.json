@@ -1,5 +1,45 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+    "resource": "/prodct-conditions",
+    "path": "/prodct-conditions",
+    "httpMethod": "GET",
+    "headers": "None",
+    "multiValueHeaders": "None",
+    "queryStringParameters": "None",
+    "multiValueQueryStringParameters": "None",
+    "pathParameters": "None",
+    "stageVariables": "None",
+    "requestContext": {
+        "resourceId": "qpco8t",
+        "resourcePath": "/prodct-conditions",
+        "httpMethod": "GET",
+        "extendedRequestId": "OU7jaGITIAMFbyQ=",
+        "requestTime": "18/Jun/2020:13:57:54 +0000",
+        "path": "/prodct-conditions",
+        "accountId": "697698772502",
+        "protocol": "HTTP/1.1",
+        "stage": "test-invoke-stage",
+        "domainPrefix": "testPrefix",
+        "requestTimeEpoch": 1592488674523,
+        "requestId": "97aa3c84-612a-43b5-aa21-c86def4ca996",
+        "identity": {
+            "cognitoIdentityPoolId": "None",
+            "cognitoIdentityId": "None",
+            "apiKey": "test-invoke-api-key",
+            "principalOrgId": "None",
+            "cognitoAuthenticationType": "None",
+            "userArn": "arn:aws:iam::697698772502:root",
+            "apiKeyId": "test-invoke-api-key-id",
+            "userAgent": "aws-internal/3 aws-sdk-java/1.11.783 Linux/4.9.184-0.1.ac.235.83.329.metal1.x86_64 OpenJDK_64-Bit_Server_VM/25.252-b09 java/1.8.0_252 vendor/Oracle_Corporation",
+            "accountId": "697698772502",
+            "caller": "697698772502",
+            "sourceIp": "test-invoke-source-ip",
+            "accessKey": "ASIA2E4QWMYLB4ARSKP5",
+            "cognitoAuthenticationProvider": "None",
+            "user": "697698772502"
+        },
+        "domainName": "testPrefix.testDomainName",
+        "apiId": "4u8d9ldi3m"
+    },
+    "body": "None",
+    "isBase64Encoded": "False"
 }

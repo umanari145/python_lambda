@@ -3,9 +3,11 @@
 ## lambdaサンプル
 
 - docker/Dockefile 2020/05現在 python3.8
-- event.json (引数:通常であればこちらから送るデータ)
-- lambda_sample.py (lambdaに挙げるプログラムそのもの)
-
+- lambda
+    - event.json (引数:通常であればこちらから送るデータ。cloudwatchでeventをデバッグしてここに書き出す)
+    - lambda_function.py (実行稼働され、エントリーポイントとなるプログラム)
+    - lambda.json (lambda-uploaderコマンドの定義になるJSONファイル)
+    - lambda_function.py (実行稼働されるプログラム)
 
 ### event.jsonに関して
 
@@ -13,11 +15,16 @@
 
 デバックコマンド
 ```
-python-lambda-local -f lambda_handler lambda_sample.py event.json
+python-lambda-local -f lambda_handler lambda_function.py event.json
 
 ```
+注意
+eventをcloudwatchに吐き出し、コピペしてevent.jsonに書き出す場合、
+1. JSONのプロパティ名がシングルクオートで囲まれているので、ダブルクオートに直す
+2. False,Noneなどがクオートでかこまれていないため、"False"などと囲む必要あり(Atomなどのエディタではシンタックスハイライト出るのでわかるはず。
 
-ログ
+
+ログ(cloudwatchをみよ)
 ```
 [root - INFO - 2020-05-02 20:28:50,022] END RequestId: e62cee64-a9a1-4f37-917b-2bbd5a7962b4
 [root - INFO - 2020-05-02 20:28:50,023] REPORT RequestId: e62cee64-a9a1-4f37-917b-2bbd5a7962b4	Duration: 3.45 ms
@@ -26,15 +33,34 @@ python-lambda-local -f lambda_handler lambda_sample.py event.json
 
 ```
 
-### Lambda + APIGateway + DynamoDB
+### デプロイ
 
-Lambda + APIGateway
+1. zipでlambda/ を固めてあげる
+lambdaディレクトリ直下を一気に固めてあげる
+```
+cd lambda/
+zip -r upload.zip *
+```
+
+2. コマンドで一気にあげる(lambda.jsonが必須)
+```
+cd lambda/
+lambda-uploader
+
+#自動で上げてくれる
+#欠点としてはライブラリが大きいと、非常に時間がかかる(Dockerで仮想環境だから?)
+#隠しファイル、隠しフォルダは上がっているが見えない状態(適当なファイルを.〜にリネームすると表示される)
+Î» Building Package
+Î» Uploading Package
+Î» Fin
+
+```
+
+
+### Lambda + APIGateway
+
+Lambda + APIGateway<br>
 https://qiita.com/tamura_CD/items/46ba8a2f3bfd5484843f#-api-gateway%E3%81%A7rest-api%E3%82%92%E4%BD%9C%E6%88%90
-
-
-Lambda + dynamodb
-https://qiita.com/hellscare/items/d80c9ff0290966eb0cf8
-
 
 
 

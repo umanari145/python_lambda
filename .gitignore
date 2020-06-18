@@ -3,3 +3,4 @@
 .aws
 .cache
 __pycache__
+.local
