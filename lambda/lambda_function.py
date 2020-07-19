@@ -8,8 +8,7 @@ def lambda_handler(event, context):
 
     controller = Controller.Controller(httpMethod, url)
     #print(controller)
-    res = controller.getResponce()
-
+    
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')

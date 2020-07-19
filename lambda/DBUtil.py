@@ -54,7 +54,6 @@ class DBUtil():
 
         res = self.table.put_item(Item=item)
         return res
-
     #
     # データの削除
     # @params string primary_key_value 主キーの値
